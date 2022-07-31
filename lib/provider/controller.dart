@@ -1,7 +1,8 @@
-// タイトルを入れるプロバイダー
+// グローバルに呼び出すプロバイダーを定義
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+// タイトルを入れるプロバイダー
 final titleProvider = StateProvider<String>((ref) {
   return '';
 });

@@ -64,6 +64,7 @@ class PostPage extends HookConsumerWidget {
       ),
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextFormField(
               // controller: useTextEditingController(text: title),
@@ -81,11 +82,13 @@ class PostPage extends HookConsumerWidget {
                 ref.watch(messageProvider.notifier).state = value;
               },
             ),
+            SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () async {
                   // await FirebaseFirestore.instance
                   //     .collection('posts')
                   //     .add({'title': title, 'message': message});
+                  // 追加するメソッドを呼び出す
                   ref.read(postStateProvider.notifier).addPost(title, message);
                 },
                 child: Text('送信')),
@@ -109,6 +112,7 @@ class PostPage extends HookConsumerWidget {
                               //     .collection('posts')
                               //     .doc(document.id)
                               //     .delete();
+                              // 削除するメソッドを呼び出す
                               ref
                                   .read(postStateProvider.notifier)
                                   .deletePost(document);
